@@ -3,8 +3,10 @@ import React from 'react';
 const ContactList = props => {
 
   const filtered = props.contacts.filter(contact => {
-    return contact.name.toLowerCase().includes(props.query.toLowerCase()) ? true : false
+    return contact.name.toLowerCase().includes(props.queryProp.toLowerCase()) ? true : false
   });
+
+  console.log(props.queryProp)
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -32,7 +34,7 @@ const ContactList = props => {
                 <td>{contact.name}</td>
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td>
-                  <button onClick={() => props.deleteContact(contact.id)}>
+                  <button onClick={() => props.deleteContactProp(contact.id)}>
                     Delete
                   </button>
                 </td>
